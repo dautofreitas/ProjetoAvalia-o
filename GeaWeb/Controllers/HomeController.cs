@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Repository.RepositoryInterfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,8 +9,19 @@ namespace GeaWeb.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IRepositoryCarro _repositoryCarro;
+
+        public HomeController(IRepositoryCarro repositoryCarro)
+        {
+            _repositoryCarro = repositoryCarro;
+        }
+
+
+        
+
         public ActionResult Index()
         {
+           // _repositoryCarro.
             return View();
         }
 
