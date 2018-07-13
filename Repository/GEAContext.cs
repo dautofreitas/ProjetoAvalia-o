@@ -3,7 +3,7 @@ using System.Data.Entity.Infrastructure;
 using GeaWeb.Models;
 using Repository.Models.Mapping;
 
-namespace Data.Models
+namespace Data
 {
     public partial class GeaContext : DbContext
     {
