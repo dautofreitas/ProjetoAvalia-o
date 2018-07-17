@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Menu Registro de fluxo Fluxo";
+}
+<div align="center">
+
+
+    <h2>Menu Registro de fluxo Fluxo</h2>
+
+    <div class=" containerMenu form-group">
+        @if (@ViewBag.RegistroDeFluxoId != null)
+        {
+            <div class="col-md-1">
+                @Html.Label("RegistroDeFluxoId", "Código Registro", htmlAttributes: new { @class = "control-label col-md-2" })
+                <span>@ViewBag.RegistroDeFluxoId</span>
+            </div>
+        }
+
+
+        <div  class=" menuRegistroButton col-lg-6" align="center" >
+            @Html.ActionLink("Nova Entrada", "Create", "RegistroDeFluxo",new { @class= "btn btn-primary"})            
+        </div>
+        <div class=" menuRegistroButton col-lg-6" align="center">            
+            @Html.ActionLink("Registrar Saída", "FindCodigoRegistro", "RegistroDeFluxo", new { @class = "btn btn-primary" })
+        </div>
+    </div>
+</div>
