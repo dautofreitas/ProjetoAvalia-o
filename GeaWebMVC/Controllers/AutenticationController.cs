@@ -22,16 +22,16 @@ namespace GeaWebMVC.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Login(Operador operador, string returnUrl)
+        public ActionResult Login(User user, string returnUrl)
         {
             if (!ModelState.IsValid)
             {
                 return View();
             }
 
-            Operador operadorExistente = _businessOperador.FindByLogin(operador.Login);
+            Operador operadorExistente = _businessOperador.FindByLogin(user.Login);
 
-            if (operador.Login == operadorExistente?.Login && operador.Senha == operadorExistente?.Senha)
+            if (user.Login == operadorExistente?.Login && user.Senha == operadorExistente?.Senha)
             {
                 var identity = new ClaimsIdentity(new[] 
                 {

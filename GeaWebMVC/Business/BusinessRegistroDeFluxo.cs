@@ -61,11 +61,11 @@ namespace GeaWebMVC.Business
             return registro;
         }
 
-        public decimal? calculaValorPorIntervaloDeDatas(DateTime DataHoraEntrada, DateTime DataHoraSaida)
+        public double? calculaValorPorIntervaloDeDatas(DateTime DataHoraEntrada, DateTime DataHoraSaida)
         {
             double totalMinutos = (DataHoraSaida - DataHoraEntrada).TotalMinutes;
 
-            return (decimal)(totalMinutos * 0.13);
+            return (totalMinutos * 0.13);
         }
     }
 }

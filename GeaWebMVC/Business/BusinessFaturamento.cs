@@ -93,7 +93,7 @@ namespace GeaWebMVC.Business
 
             email.Subject = "Contato";
             email.Body = " Favor realizar o pagamento da competência<br/> Empresa:  " + faturamento.Empresa.Nome + "<br/> " +
-                "Valor a pagar : R$:" + (faturamento.ValorCompetencia * 0.05m) ;
+                "Valor a pagar : R$:" + (faturamento.ValorCompetencia * 0.05) ;
             email.IsBodyHtml = true;
             email.BodyEncoding = System.Text.Encoding.UTF8;
 

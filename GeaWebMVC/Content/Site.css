@@ -28,9 +28,29 @@ textarea {
     
    
 }
-.navbar ul li a {
-   color: white;
+
+
+.form-control {
+    
+    max-width: 350px;
 }
-.containerMenu{
-    display:inline;
+#containerLogin
+{
+    margin-top:10%;
+}
+
+#btnlogar {
+    margin-top: 40px;
+}
+.form-signin-heading
+{
+    margin-left : 20px;
+}
+.form-control
+{
+    margin-top: 15px;
+}
+
+.btn.btn-lg.btn-primary {
+    margin-top: 20px;
 }

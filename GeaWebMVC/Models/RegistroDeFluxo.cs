@@ -20,7 +20,7 @@ namespace GeaWebMVC.Models
         [DataType(DataType.Time)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:HH:mm}")]
         public DateTime? HoraSaida { get; set; }
-        public decimal? ValorAPagar { get; set; }
+        public double? ValorAPagar { get; set; }
         public virtual Carro Carro { get; set; }
         public virtual Faturamento Faturamento { get; set; }
         public virtual Operador Operador { get; set; }

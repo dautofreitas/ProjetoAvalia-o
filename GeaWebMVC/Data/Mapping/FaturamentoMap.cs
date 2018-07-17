@@ -19,6 +19,7 @@ namespace Repository.Models.Mapping
             this.Property(t => t.DataCompetencia).HasColumnName("DataCompetencia");
             this.Property(t => t.DataPagamento).HasColumnName("DataPagamento");
             this.Property(t => t.ValorCompetencia).HasColumnName("ValorCompetencia");
+            this.Property(t => t.Valor).HasColumnName("Valor");
 
             // Relationships
             this.HasRequired(t => t.Empresa)

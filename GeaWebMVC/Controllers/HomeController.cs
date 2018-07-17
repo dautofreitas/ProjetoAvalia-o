@@ -22,15 +22,9 @@ namespace GeaWebMVC.Controllers
 
         public ActionResult Index()
         {
-            //Carro carro = new Carro();
-
-            //carro.Marca = "Teste";
-            //carro.Modelo = "Mteste";
-            //carro.Placa = "Placa";
             
-            //_repositoryCarro.Add(carro);
             
-            return View();
+            return RedirectToAction("MenuRegistroDeFluxo", "RegistroDeFluxoController");
         }
 
         public ActionResult About()
