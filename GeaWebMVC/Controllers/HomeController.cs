@@ -24,7 +24,7 @@ namespace GeaWebMVC.Controllers
         {
             
             
-            return RedirectToAction("MenuRegistroDeFluxo", "RegistroDeFluxoController");
+            return RedirectToAction("MenuRegistroDeFluxo", "RegistroDeFluxo");
         }
 
         public ActionResult About()

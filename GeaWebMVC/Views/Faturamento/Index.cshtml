@@ -4,8 +4,6 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -18,7 +16,7 @@
             @Html.DisplayNameFor(model => model.DataCompetencia)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DataPagamento)
+            @Html.DisplayNameFor(model => model.Valor)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ValorCompetencia)
@@ -35,15 +33,15 @@
             @Html.DisplayFor(modelItem => item.DataCompetencia)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DataPagamento)
+            @Html.DisplayFor(modelItem => item.Valor)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ValorCompetencia)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+           
+            @Html.ActionLink("Detalhe", "Details", new { id=item.Id },new {@class= "btn btn-primary " }) 
+         
         </td>
     </tr>
 }

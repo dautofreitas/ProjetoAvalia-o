@@ -64,8 +64,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.ValorAPagar)
         </td>
-        <td>            
-            @Html.ActionLink("Details", "Details", new { id=item.Id })            
+        <td>
+
+            
+            @Html.ActionLink("Detalhe", "Details", new { id = item.Id }, new { @class = "btn btn-primary " })
+            
         </td>
     </tr>
 }

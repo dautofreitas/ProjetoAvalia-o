@@ -61,9 +61,7 @@ namespace GeaWebMVC.Controllers
             return View();
         }
 
-        // POST: RegistroDeFluxo/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(RegistroDeFluxoWihtCarro registroDeFluxoWihtCarro)
@@ -123,9 +121,7 @@ namespace GeaWebMVC.Controllers
             return View(registroDeFluxo);
         }
 
-        // POST: RegistroDeFluxo/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,FaturamentoId,OperadorId,CarroId,DataHoraEntrada,DataHoraSaida,ValorAPagar")] RegistroDeFluxo registroDeFluxo)
@@ -195,7 +191,7 @@ namespace GeaWebMVC.Controllers
 
             RegistroDeFluxo registroDeFluxo = _businessRegistroDeFluxo.CalculaValorAPagar(DateTime.Now, Convert.ToInt32(CodigoRegistro));
 
-            return View("Detalis", registroDeFluxo);
+            return View("Details", registroDeFluxo);
         }
 
 

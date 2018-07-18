@@ -9,9 +9,11 @@ using System.Web.Mvc;
 using Data;
 using GeaWebMVC.Business.RepositoryInterfaces;
 using GeaWebMVC.Models;
+using GeaWebMVC.Utils;
 
 namespace GeaWebMVC.Controllers
 {
+    [PerfilFilter(TipoPerfil = "Administrador")]
     public class OperadorController : Controller
     {
         private readonly IBusinessOperador _businessOperador;
@@ -57,9 +59,6 @@ namespace GeaWebMVC.Controllers
             return View();
         }
 
-        // POST: Operador/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Operador operador)
@@ -94,9 +93,7 @@ namespace GeaWebMVC.Controllers
             return View(operador);
         }
 
-        // POST: Operador/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+ 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit( Operador operador)

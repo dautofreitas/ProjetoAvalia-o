@@ -9,9 +9,11 @@ using System.Web.Mvc;
 using Data;
 using GeaWebMVC.Business.RepositoryInterfaces;
 using GeaWebMVC.Models;
+using GeaWebMVC.Utils;
 
 namespace GeaWebMVC.Controllers
 {
+    [PerfilFilter(TipoPerfil = "Administrador")]
     public class FaturamentoController : Controller
     {
         private readonly IBusinessFaturamento _businessFaturamento;
@@ -130,9 +132,15 @@ namespace GeaWebMVC.Controllers
 
         public ActionResult SendEmail(int ? id)
         {
-            Faturamento faturamento = _businessFaturamento.GetById(id);
-            _businessFaturamento.SendEmail(faturamento);
+            if (id != null)
+            {
+                Faturamento faturamento = _businessFaturamento.GetById(id);
+                _businessFaturamento.SendEmail(faturamento);
+                
+            }
+
             return View("Index");
+
         }
 
 

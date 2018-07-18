@@ -23,8 +23,8 @@ namespace GeaTest.Business
             DateTime dataHoraEntrada = new DateTime(2018,5,1,0,0,0);
             DateTime dataHoraSaida = new DateTime(2018,5,1, 0, 2, 0);
 
-            decimal esperado = 0.26m;
-            decimal? obitido = _businessRegistroDeFluxo.calculaValorPorIntervaloDeDatas(dataHoraEntrada, dataHoraSaida);
+            double? esperado = 0.26;
+            double? obitido = _businessRegistroDeFluxo.calculaValorPorIntervaloDeDatas(dataHoraEntrada, dataHoraSaida);
 
             Assert.AreEqual(esperado, obitido);
         }

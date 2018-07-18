@@ -9,9 +9,11 @@ using System.Web.Mvc;
 using Data;
 using GeaWebMVC.Business.RepositoryInterfaces;
 using GeaWebMVC.Models;
+using GeaWebMVC.Utils;
 
 namespace GeaWebMVC.Controllers
 {
+    [PerfilFilter(TipoPerfil = "Administrador")]
     public class EmpresaController : Controller
     {
         private readonly IBusinessEmpresa _businessEmpresa;

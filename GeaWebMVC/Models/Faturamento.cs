@@ -22,8 +22,10 @@ namespace GeaWebMVC.Models
         [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd/MM/yy}")]
         public DateTime? DataPagamento { get; set; }
         [Display(Name = "Valor da Competencia")]
+        [DataType(DataType.Currency)]
         public double? ValorCompetencia { get; set; }
         [Display(Name = "Valor")]
+        [DataType(DataType.Currency)]
         public double? Valor { get; set; }
         public virtual Empresa Empresa { get; set; }
         public virtual ICollection<RegistroDeFluxo> RegistroDeFluxos { get; set; }

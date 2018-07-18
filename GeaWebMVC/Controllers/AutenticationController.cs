@@ -35,7 +35,7 @@ namespace GeaWebMVC.Controllers
             {
                 var identity = new ClaimsIdentity(new[] 
                 {
-                    new Claim(ClaimTypes.Name, operadorExistente.Login),
+                    new Claim(ClaimTypes.Name, operadorExistente.Login+"|"+ operadorExistente.Perfil.Tipo),
 
                 }, "ApplicationCookie"
                 );

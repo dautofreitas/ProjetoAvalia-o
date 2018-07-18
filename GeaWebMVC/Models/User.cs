@@ -8,9 +8,11 @@ namespace GeaWebMVC.Models
 {
     public class User
     {
-        [Required]
+        [Required(ErrorMessage ="Favor informar o login")]
+        [StringLength(20, ErrorMessage = "O senha deve conter no máximo 20 digitos")]
         public string Login { get; set; }
-        [Required]
+        [StringLength(15, ErrorMessage = "O senha deve conter no máximo 15 digitos")]
+        [Required(ErrorMessage = "Favor informar a senha")]
         [DataType(DataType.Password)]
         public string Senha { get; set; }
     }

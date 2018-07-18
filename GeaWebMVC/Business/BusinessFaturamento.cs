@@ -62,14 +62,16 @@ namespace GeaWebMVC.Business
             
             if(faturamentoExistente!= null)
             {
-                faturamentoExistente.ValorCompetencia += registros.Sum(r => r.ValorAPagar);
+                faturamentoExistente.Valor += registros.Sum(r => r.ValorAPagar);
+                faturamentoExistente.ValorCompetencia += registros.Sum(r => r.ValorAPagar).Value * 0.05;
                 _repositoryFaturamento.Update(faturamentoExistente);
                 faturamento = faturamentoExistente;
                 
             }
             else
             {
-                faturamento.ValorCompetencia = registros.Sum(r => r.ValorAPagar);
+                faturamentoExistente.Valor += registros.Sum(r => r.ValorAPagar);
+                faturamento.ValorCompetencia = registros.Sum(r => r.ValorAPagar) * 0.05;
 
                 _repositoryFaturamento.Add(faturamento);
             }
@@ -93,7 +95,7 @@ namespace GeaWebMVC.Business
 
             email.Subject = "Contato";
             email.Body = " Favor realizar o pagamento da competência<br/> Empresa:  " + faturamento.Empresa.Nome + "<br/> " +
-                "Valor a pagar : R$:" + (faturamento.ValorCompetencia * 0.05) ;
+                "Valor a pagar : R$:" + (faturamento.ValorCompetencia) ;
             email.IsBodyHtml = true;
             email.BodyEncoding = System.Text.Encoding.UTF8;
 

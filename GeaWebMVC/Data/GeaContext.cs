@@ -9,11 +9,7 @@ namespace Data
 {
     public class GeaContext : DbContext
     {
-        public GeaContext(string nameConnection)
-            : base(nameConnection)
-        {
-        }
-
+        
         public GeaContext()
             : base("Name=GeaContext")
         {

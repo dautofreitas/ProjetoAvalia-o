@@ -239,6 +239,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Utils\EmailUltil.cs" />
+    <Compile Include="Utils\PerfilFilter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -313,7 +314,7 @@
     <Content Include="Views\Operador\Edit.cshtml" />
     <Content Include="Views\Autentication\LoginOld.cshtml" />
     <Content Include="Views\RegistroDeFluxo\Index.cshtml" />
-    <Content Include="Views\RegistroDeFluxo\Detalis.cshtml" />
+    <Content Include="Views\RegistroDeFluxo\Details.cshtml" />
     <Content Include="Views\RegistroDeFluxo\Edit.cshtml" />
     <Content Include="Views\RegistroDeFluxo\Delete.cshtml" />
     <Content Include="Views\RegistroDeFluxo\Create.cshtml" />

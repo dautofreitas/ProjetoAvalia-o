@@ -46,11 +46,35 @@ textarea {
 {
     margin-left : 20px;
 }
-.form-control
-{
+.form-group {
     margin-top: 15px;
 }
 
 .btn.btn-lg.btn-primary {
     margin-top: 20px;
+}
+.nav.navbar-nav >li > a {
+    color: white;
+}
+.head-form {
+    margin-left: 20px;
+    margin-bottom: 30px;
+}
+
+.form-horizontal {
+    margin-top: 8%;
+    margin-bottom:20px;
+}
+
+#codigo-registro {
+    margin-top: 50px;
+    height: 100px;
+}
+#menuRegistroDeFluxo
+{
+    margin-top:50px;
+
+}
+.form-details {
+    margin-top: 70px;
 }

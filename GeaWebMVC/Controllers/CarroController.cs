@@ -9,10 +9,12 @@ using System.Web.Mvc;
 using Data;
 using GeaWebMVC.Business.RepositoryInterfaces;
 using GeaWebMVC.Models;
+using GeaWebMVC.Utils;
 using Repository.RepositoryInterfaces;
 
 namespace GeaWebMVC.Controllers
 {
+    [PerfilFilter(TipoPerfil="Administrador")]
     public class CarroController : Controller
     {
 
@@ -47,6 +49,7 @@ namespace GeaWebMVC.Controllers
         }
 
         // GET: Carro/Create
+   
         public ActionResult Create()
         {
             return View();

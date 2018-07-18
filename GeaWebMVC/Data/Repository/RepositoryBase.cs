@@ -11,7 +11,7 @@ namespace Data.Repository
 {
     public class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : class
     {
-        protected GeaContext Db = new GeaContext("Name=GeaContext");
+        protected GeaContext Db = new GeaContext();
         
 
 

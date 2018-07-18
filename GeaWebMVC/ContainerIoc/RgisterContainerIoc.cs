@@ -43,7 +43,7 @@ namespace ContainerIoc
             container.Register<IBusinessFaturamento, BusinessFaturamento>(Lifestyle.Transient);
 
 
-            container.Register<DbContext>(() => new GeaContext("Name=GeaContext"), Lifestyle.Scoped);
+           // container.Register<DbContext>(() => new GeaContext("Name=GeaContext"), Lifestyle.Scoped);
 
             // This is an extension method from the integration package.
             container.RegisterMvcControllers(Assembly.GetExecutingAssembly());

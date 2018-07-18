@@ -20,14 +20,13 @@ namespace GeaWebMVC.Models
         [DataType(DataType.Time)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:H:mm}")]
         public DateTime? HoraEntrada { get; set; }
-        
+        [Display(Name = "Data Saída")]
         public DateTime? DataSaida { get; set; }
-
-        
+        [Display(Name = "Hora Saída")]
         public DateTime? HoraSaida { get; set; }
         [Required(ErrorMessage = "Favor informar a placa do veículo")]
         [RegularExpression(@"^[a-zA-Z]{3}\d{4}$", ErrorMessage =
-                    "Por favor informa um formato de placa válido, EX:AAA1111")]
+                    "Por favor informa um formato de placa válido, Ex:AAA1111")]
         public string Placa { get; set; }
         [Required(ErrorMessage = "Favor informar a marca do veículo")]
         public string Marca { get; set; }

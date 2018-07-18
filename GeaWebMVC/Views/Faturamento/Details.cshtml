@@ -4,14 +4,14 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>Faturamento</h4>
+
+<div class="form-details col-md-6 col-md-offset-4">
+    <h2>Faturamento</h2>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Empresa.Nome)
+            @Html.DisplayName("Empresa")
         </dt>
 
         <dd>
@@ -24,7 +24,15 @@
 
         <dd>
             @Html.DisplayFor(model => model.DataCompetencia)
-        </dd>      
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Valor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Valor)
+        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.ValorCompetencia)
@@ -35,9 +43,10 @@
         </dd>
 
     </dl>
+    <div>
+       
+        @Html.ActionLink("Enviar Email", "SendEmail", new { id = Model.Id }, new { @class = "btn btn-primary " }) 
+        @Html.ActionLink("Listar Faturamento", "Index", null, new { @class = "btn btn-primary " })
+
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Enviar Email", "SendEmail", new { id = Model.Id }) ||
-    @Html.ActionLink("Back to List", "Index")
-</p>

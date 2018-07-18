@@ -3,24 +3,28 @@
     ViewBag.Title = "FindCodigoRegistro";
 }
 
-<h2>FindCodigoRegistro</h2>
+
 
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-horizontal">
-
-        <div class="form-group">
-            @Html.Label("CodigoRegistro", "Código Registro", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBox("CodigoRegistro", null, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessage("CodigoRegistro", "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Reisitrar saída" class="btn btn-default" />
-            </div>
+<div class=" form-horizontal col-md-8 col-md-offset-2">
+    <h2 class=" col-md-offset-2 form-signin-heading">Registrar Saída</h2>
+    <div class="form-group">
+        @Html.Label("CodigoRegistro", "Código Registro", htmlAttributes: new { @class = "control-label col-md-3" })
+        <div class="col-md-6">
+            @Html.TextBox("CodigoRegistro", null, new { @class = "form-control" })
+            @Html.ValidationMessage("CodigoRegistro", "", new { @class = "text-danger" })
         </div>
     </div>
+    <div class="form-group">
+        <div class="col-md-offset-6 col-md-2">
+            <input type="submit" value="Registrar" class="btn btn-lg btn-primary" />
+        </div>
+    </div>
+</div>
 }
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

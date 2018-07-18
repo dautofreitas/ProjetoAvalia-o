@@ -9,9 +9,11 @@ using System.Web.Mvc;
 using Data;
 using GeaWebMVC.Business.RepositoryInterfaces;
 using GeaWebMVC.Models;
+using GeaWebMVC.Utils;
 
 namespace GeaWebMVC.Controllers
 {
+    [PerfilFilter(TipoPerfil = "Administrador")]
     public class PerfilController : Controller
     {
         private readonly IBusinessPerfil _businessPerfil;
@@ -49,9 +51,7 @@ namespace GeaWebMVC.Controllers
             return View();
         }
 
-        // POST: Perfil/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+     
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Tipo")] Perfil perfil)
@@ -81,9 +81,7 @@ namespace GeaWebMVC.Controllers
             return View(perfil);
         }
 
-        // POST: Perfil/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+      
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Tipo")] Perfil perfil)
