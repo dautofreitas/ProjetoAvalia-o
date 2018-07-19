@@ -6,10 +6,10 @@ Configurar a string de conexão da base de dados no arquivo "Web.config".
 
 A conexão deve possuir o atributo name com o valo "GeaContext" conforme exemplo abaixo:
 
-<connectionStrings>
+"<connectionStrings>
     <add name="GeaContext" connectionString="Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=GEABANCO;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False" providerName="System.Data.SqlClient" />
      
- </connectionStrings>
+ </connectionStrings>"
 
 Executar o Script  configuração da base de dados que estão no arquivo "ScriptDeCriação.sql"
 
