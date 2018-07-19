@@ -3,47 +3,47 @@
 @{
     ViewBag.Title = "Index";
 }
+<div class="col-md-10 col-md-offset-1">
+    <h2>Lista dos faturamentos</h2>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Empresa.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataCompetencia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Valor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ValorCompetencia)
+            </th>
+            <th></th>
+        </tr>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Empresa.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DataCompetencia)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Valor)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ValorCompetencia)
-        </th>
-        <th></th>
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Empresa.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataCompetencia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Valor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ValorCompetencia)
+                </td>
+                <td>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Empresa.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DataCompetencia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Valor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ValorCompetencia)
-        </td>
-        <td>
-           
-            @Html.ActionLink("Detalhe", "Details", new { id=item.Id },new {@class= "btn btn-primary " }) 
-         
-        </td>
-    </tr>
-}
+                    @Html.ActionLink("Detalhe", "Details", new { id = item.Id }, new { @class = "btn btn-primary " })
 
-</table>
+                </td>
+            </tr>
+        }
+
+        </table>
+</div>

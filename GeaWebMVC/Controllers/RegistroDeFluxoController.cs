@@ -28,8 +28,7 @@ namespace GeaWebMVC.Controllers
             _businessFaturamento = businessFaturamento;
 
         }
-        private GeaContext db = new GeaContext();
-
+       
         // GET: RegistroDeFluxo
         public ActionResult Index()
         {
@@ -72,7 +71,7 @@ namespace GeaWebMVC.Controllers
                 RegistroDeFluxo registroDeFluxo = new RegistroDeFluxo();
 
                 Carro carroExistente = _businessCarro.FindByPlaca(registroDeFluxoWihtCarro.Placa);
-                string loginOperador = Request.GetOwinContext().Authentication.User.Identity.Name;
+                string loginOperador = Request.GetOwinContext().Authentication.User.Identity.Name.Split('|')?[0];
 
 
                 Operador operador = _businessOperador.FindByLogin(loginOperador);
@@ -120,23 +119,8 @@ namespace GeaWebMVC.Controllers
 
             return View(registroDeFluxo);
         }
-
+             
        
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FaturamentoId,OperadorId,CarroId,DataHoraEntrada,DataHoraSaida,ValorAPagar")] RegistroDeFluxo registroDeFluxo)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(registroDeFluxo).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.CarroId = new SelectList(_businessCarro.GetAll(), "Id", "Placa", registroDeFluxo.CarroId);
-            ViewBag.FaturamentoId = new SelectList(_businessFaturamento.GetAll(), "Id", "Id", registroDeFluxo.FaturamentoId);
-            ViewBag.OperadorId = new SelectList(_businessOperador.GetAll(), "Id", "Nome", registroDeFluxo.OperadorId);
-            return View(registroDeFluxo);
-        }
 
         // GET: RegistroDeFluxo/Delete/5
         public ActionResult Delete(int? id)
@@ -145,7 +129,7 @@ namespace GeaWebMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RegistroDeFluxo registroDeFluxo = db.RegistroDeFluxos.Find(id);
+            RegistroDeFluxo registroDeFluxo = _businessRegistroDeFluxo.GetById(id);
             if (registroDeFluxo == null)
             {
                 return HttpNotFound();
@@ -158,9 +142,9 @@ namespace GeaWebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            RegistroDeFluxo registroDeFluxo = db.RegistroDeFluxos.Find(id);
-            db.RegistroDeFluxos.Remove(registroDeFluxo);
-            db.SaveChanges();
+            RegistroDeFluxo registroDeFluxo = _businessRegistroDeFluxo.GetById(id);
+            _businessRegistroDeFluxo.Rmove(registroDeFluxo);
+            
             return RedirectToAction("Index");
         }
 
@@ -189,8 +173,13 @@ namespace GeaWebMVC.Controllers
                 return View();
             }
 
-            RegistroDeFluxo registroDeFluxo = _businessRegistroDeFluxo.CalculaValorAPagar(DateTime.Now, Convert.ToInt32(CodigoRegistro));
+            if(_businessRegistroDeFluxo.GetById(Convert.ToInt32(CodigoRegistro))==null)
+            {                
+                ModelState.AddModelError("CodigoRegistro", "O código de registro informado não foi encontrado");
+                return View();
+            }
 
+            RegistroDeFluxo registroDeFluxo = _businessRegistroDeFluxo.CalculaValorAPagar(DateTime.Now, Convert.ToInt32(CodigoRegistro));
             return View("Details", registroDeFluxo);
         }
 

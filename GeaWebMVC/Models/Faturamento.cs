@@ -11,8 +11,8 @@ namespace GeaWebMVC.Models
             this.RegistroDeFluxos = new List<RegistroDeFluxo>();
         }
 
-        public int EmpresaId { get; set; }
-        public int Id { get; set; }
+        public int? EmpresaId { get; set; }
+        public int? Id { get; set; }
         
         [Display(Name = "Data da Competencia")]        
         [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:MM/yyyy}", ApplyFormatInEditMode = true)]       

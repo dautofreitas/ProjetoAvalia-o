@@ -23,8 +23,6 @@ namespace GeaWebMVC.Controllers
             _businessEmpresa = businessEmpresa;
         }
 
-        private GeaContext db = new GeaContext();
-
         // GET: Empresa
         public ActionResult Index()
         {
@@ -52,17 +50,20 @@ namespace GeaWebMVC.Controllers
             return View();
         }
 
-        // POST: Empresa/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Empresa empresa)
         {
             if (ModelState.IsValid)
             {
-                _businessEmpresa.Create(empresa);
+                MessageReturn messageReturn = _businessEmpresa.Create(empresa);
                 
+                if (!messageReturn.IsValid)
+                {
+                    messageReturn.MessagesError.ForEach( error =>  ModelState.AddModelError("",error));
+
+                    return View(empresa);
+                }
                 return RedirectToAction("Index");
             }
 
@@ -84,16 +85,24 @@ namespace GeaWebMVC.Controllers
             return View(empresa);
         }
 
-        // POST: Empresa/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Empresa empresa)
         {
             if (ModelState.IsValid)
             {
-                _businessEmpresa.Update(empresa);
+
+                
+
+                MessageReturn messageReturn = _businessEmpresa.Update(empresa);
+
+                if (!messageReturn.IsValid)
+                {
+                    messageReturn.MessagesError.ForEach(error => ModelState.AddModelError("", error));
+
+                    return View(empresa);
+                }
+
                 return RedirectToAction("Index");
             }
             return View(empresa);
@@ -104,7 +113,7 @@ namespace GeaWebMVC.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("Index"); ;
             }
             Empresa empresa = _businessEmpresa.GetById(id);
             if (empresa == null)
@@ -120,8 +129,8 @@ namespace GeaWebMVC.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Empresa empresa = _businessEmpresa.GetById(id);
-            db.Empresas.Remove(empresa);
-            db.SaveChanges();
+            _businessEmpresa.Remove(empresa);
+            
             return RedirectToAction("Index");
         }
             

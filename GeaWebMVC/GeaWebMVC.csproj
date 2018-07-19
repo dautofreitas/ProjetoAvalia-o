@@ -238,6 +238,7 @@
     <Compile Include="Models\RegistroDeFluxoWihtCarro.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Utils\MessageReturn.cs" />
     <Compile Include="Utils\EmailUltil.cs" />
     <Compile Include="Utils\PerfilFilter.cs" />
   </ItemGroup>
@@ -312,7 +313,6 @@
     <Content Include="Views\Operador\Details.cshtml" />
     <Content Include="Views\Operador\Delete.cshtml" />
     <Content Include="Views\Operador\Edit.cshtml" />
-    <Content Include="Views\Autentication\LoginOld.cshtml" />
     <Content Include="Views\RegistroDeFluxo\Index.cshtml" />
     <Content Include="Views\RegistroDeFluxo\Details.cshtml" />
     <Content Include="Views\RegistroDeFluxo\Edit.cshtml" />

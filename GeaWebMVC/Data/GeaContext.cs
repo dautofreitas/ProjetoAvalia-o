@@ -14,13 +14,13 @@ namespace Data
             : base("Name=GeaContext")
         {
         }
-        public DbSet<Carro> Carros { get; set; }
+        /*public DbSet<Carro> Carros { get; set; }
         public DbSet<Empresa> Empresas { get; set; }
         public DbSet<Faturamento> Faturamentos { get; set; }
         public DbSet<Operador> Operadores { get; set; }
         public DbSet<Perfil> Perfils { get; set; }
         public DbSet<RegistroDeFluxo> RegistroDeFluxos { get; set; }     
-
+        */
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new CarroMap());

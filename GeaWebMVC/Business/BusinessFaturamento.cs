@@ -70,7 +70,7 @@ namespace GeaWebMVC.Business
             }
             else
             {
-                faturamentoExistente.Valor += registros.Sum(r => r.ValorAPagar);
+                faturamento.Valor = registros.Sum(r => r.ValorAPagar);
                 faturamento.ValorCompetencia = registros.Sum(r => r.ValorAPagar) * 0.05;
 
                 _repositoryFaturamento.Add(faturamento);

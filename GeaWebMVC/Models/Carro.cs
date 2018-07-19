@@ -10,7 +10,7 @@ namespace GeaWebMVC.Models
             this.RegistroDeFluxos = new List<RegistroDeFluxo>();
         }
 
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string Placa { get; set; }
         public string Marca { get; set; }
         public string Modelo { get; set; }

@@ -10,6 +10,7 @@ namespace GeaWebMVC.Models
     [NotMapped]
     public class RegistroDeFluxoWihtCarro
     {
+        [Display(Name = "Código registro")]
         public int? Id { get; set; }
         [Display(Name="Data Entrada")]
         [Required(ErrorMessage = "Favor informar a Data de entrada")]

@@ -11,7 +11,7 @@ namespace GeaWebMVC.Models
         }
 
         public string Tipo { get; set; }
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public virtual ICollection<Operador> Operadores { get; set; }
     }
 }

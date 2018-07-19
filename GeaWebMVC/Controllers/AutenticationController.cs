@@ -31,13 +31,13 @@ namespace GeaWebMVC.Controllers
 
             Operador operadorExistente = _businessOperador.FindByLogin(user.Login);
 
-            if (user.Login == operadorExistente?.Login && user.Senha == operadorExistente?.Senha)
+            if (user.Login.ToUpper() == operadorExistente?.Login.ToUpper() && user.Senha.ToUpper() == operadorExistente?.Senha.ToUpper())
             {
                 var identity = new ClaimsIdentity(new[] 
                 {
                     new Claim(ClaimTypes.Name, operadorExistente.Login+"|"+ operadorExistente.Perfil.Tipo),
 
-                }, "ApplicationCookie"
+                    }, "ApplicationCookie"
                 );
 
                 var ctx = Request.GetOwinContext();
@@ -47,7 +47,7 @@ namespace GeaWebMVC.Controllers
 
                 return Redirect(GetRedirectUrl(returnUrl));
             }
-            // 
+            
             ModelState.AddModelError("","Usuário ou senha estão inválidos");
             return View();
         }
@@ -55,7 +55,7 @@ namespace GeaWebMVC.Controllers
         {
             var ctx = Request.GetOwinContext();
             var authManager = ctx.Authentication;
-            //var claim = authManager.User.Identity;
+         
 
             authManager.SignOut("ApplicationCookie");
 

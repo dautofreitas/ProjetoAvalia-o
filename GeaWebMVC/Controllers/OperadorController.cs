@@ -27,8 +27,7 @@ namespace GeaWebMVC.Controllers
             _businessEmpresa = businessEmpresa;
             _businessPerfil = businessPerfil;
         }
-        private GeaContext db = new GeaContext();
-
+   
         // GET: Operador
         public ActionResult Index()
         {
@@ -63,15 +62,24 @@ namespace GeaWebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Operador operador)
         {
+            ViewBag.EmpresaId = new SelectList(_businessEmpresa.GetAll(), "Id", "Nome", operador.EmpresaId);
+            ViewBag.PerfilId = new SelectList(_businessPerfil.GetAll(), "Id", "Tipo", operador.PerfilId);
+
             if (ModelState.IsValid)
             {
-                _businessOperador.Create(operador);
-                
+                MessageReturn messageReturn = _businessOperador.Create(operador);
+
+                if (!messageReturn.IsValid)
+                {
+                    messageReturn.MessagesError.ForEach(error => ModelState.AddModelError("", error));
+
+                    return View(operador);
+                }
+
                 return RedirectToAction("Index");
             }
 
-            ViewBag.EmpresaId = new SelectList(_businessEmpresa.GetAll(), "Id", "Nome", operador.EmpresaId);
-            ViewBag.PerfilId = new SelectList(_businessPerfil.GetAll(), "Id", "Tipo", operador.PerfilId);
+            
             return View(operador);
         }
 
@@ -98,13 +106,23 @@ namespace GeaWebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit( Operador operador)
         {
+            ViewBag.EmpresaId = new SelectList(_businessEmpresa.GetAll(), "Id", "Nome", operador.EmpresaId);
+            ViewBag.PerfilId = new SelectList(_businessPerfil.GetAll(), "Id", "Tipo", operador.PerfilId);
             if (ModelState.IsValid)
             {
-                _businessOperador.Update(operador);
+
+                MessageReturn messageReturn = _businessOperador.Update(operador);
+
+                if (!messageReturn.IsValid)
+                {
+                    messageReturn.MessagesError.ForEach(error => ModelState.AddModelError("", error));
+
+                    return View(operador);
+                }
+                
                 return RedirectToAction("Index");
             }
-            ViewBag.EmpresaId = new SelectList(db.Empresas, "Id", "Nome", operador.EmpresaId);
-            ViewBag.PerfilId = new SelectList(db.Perfils, "Id", "Tipo", operador.PerfilId);
+           
             return View(operador);
         }
 

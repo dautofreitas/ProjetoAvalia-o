@@ -1,16 +1,18 @@
 ﻿using System.Collections.Generic;
 using GeaWebMVC.Models;
+using GeaWebMVC.Utils;
 
 namespace GeaWebMVC.Business.RepositoryInterfaces
 {
     public interface IBusinessOperador
     {
-        void Create(Operador Operador);
+        MessageReturn Create(Operador Operador);
         IEnumerable<Operador> GetAll();
         Operador GetById(int? OperadorId);
-        void Update(Operador Operador);
+        MessageReturn Update(Operador Operador);
         void Remove(Operador Operador);
         Operador FindByLogin(string login);
+        bool Isvalid(string login,string senha);
         Operador FindByCpf(string cpf);
     }
 }

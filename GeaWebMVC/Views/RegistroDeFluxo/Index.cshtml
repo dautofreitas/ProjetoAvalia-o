@@ -3,74 +3,74 @@
 @{
     ViewBag.Title = "Index";
 }
+<div class="col-md-10 col-md-offset-1">
+    <h2>Lista dos registros de fluxo</h2>
 
-<h2>Index</h2>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Carro.Placa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Operador.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataEntrada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HoraEntrada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataSaida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HoraSaida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ValorAPagar)
+            </th>
+            <th></th>
+        </tr>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Carro.Placa)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Id)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Operador.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DataEntrada)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HoraEntrada)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DataSaida)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HoraSaida)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ValorAPagar)
-        </th>
-        <th></th>
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Carro.Placa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Operador.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataEntrada)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoraEntrada)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataSaida)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoraSaida)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ValorAPagar)
+                </td>
+                <td>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Carro.Placa)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Id)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Operador.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DataEntrada)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HoraEntrada)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DataSaida)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HoraSaida)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ValorAPagar)
-        </td>
-        <td>
 
-            
-            @Html.ActionLink("Detalhe", "Details", new { id = item.Id }, new { @class = "btn btn-primary " })
-            
-        </td>
-    </tr>
-}
+                    @Html.ActionLink("Detalhe", "Details", new { id = item.Id }, new { @class = "btn btn-primary " })
 
-</table>
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>

@@ -18,9 +18,10 @@ namespace GeaWebMVC.Models
             "Por favor informa apenas números")]
         [StringLength(14, MinimumLength = 14, ErrorMessage = "O CNPJ deve conter 14 Digitos")]      
         public string Cnpj { get; set; }
+        [EmailAddress(ErrorMessage = "E-mail inválido")]
         [Required(ErrorMessage = "Favor informar a E-mail")]
         public string Email { get; set; }
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public virtual ICollection<Faturamento> Faturamentos { get; set; }
         public virtual ICollection<Operador> Operadores { get; set; }
     }

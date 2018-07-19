@@ -78,9 +78,9 @@ INSERT [dbo].[Perfil]([Tipo]) values ('Administrador'),('Normal')
 
 INSERT [dbo].[Empresa] ([Nome],[Cnpj],[Email]) values ('Estacionamento certo LTDA','11111111111111','emailtest@teste')
 
-INSERT [dbo].[Operador]([Nome], [Cpf],[Login],[Senha],[EmpresaId],[PerfilId]) values('Administrador','11111111111','admim','admim',1,1)
+INSERT [dbo].[Operador]([Nome], [Cpf],[Login],[Senha],[EmpresaId],[PerfilId]) values('Administrador','11111111111','admin','admin',1,1)
 
-INSERT [dbo].[Operador]([Nome], [Cpf],[Login],[Senha],[EmpresaId],[PerfilId]) values('Normal','11111111111','normal','normal',1,2)
+INSERT [dbo].[Operador]([Nome], [Cpf],[Login],[Senha],[EmpresaId],[PerfilId]) values('Normal','22222222222','normal','normal',1,2)
 
 
 

@@ -6,7 +6,7 @@
 
 
 <div class="form-details col-md-6 col-md-offset-4">
-    <h2>RegistroDeFluxo</h2>
+    <h2>Registro de Fluxo</h2>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -15,15 +15,7 @@
 
         <dd>
             @Html.DisplayFor(model => model.Carro.Placa)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Faturamento.Id)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Faturamento.Id)
-        </dd>
+        </dd>              
 
         <dt>
             @Html.DisplayNameFor(model => model.Operador.Nome)
@@ -74,8 +66,8 @@
         </dd>
 
     </dl>
-    <div>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary " })
+    <div class="col-md-3 col-md-offset-4">
+        @Html.ActionLink("Listar", "Index",null, new { @class = "btn btn-primary " })
     </div>
 </div>
 
