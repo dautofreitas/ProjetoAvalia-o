@@ -10,8 +10,8 @@ namespace Data
     public class GeaContext : DbContext
     {
         
-        public GeaContext()
-            : base("Name=GeaContext")
+        public GeaContext(string connectionName)
+            : base(connectionName)
         {
         }
         /*public DbSet<Carro> Carros { get; set; }

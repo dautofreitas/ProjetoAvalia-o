@@ -1,4 +1,5 @@
-﻿using Data.Repository;
+﻿using Data;
+using Data.Repository;
 using GeaWebMVC.Models;
 using Repository.RepositoryInterfaces;
 using System;
@@ -11,5 +12,10 @@ namespace Repository.Repository
 {
   public class RepositoryOperador : RepositoryBase<Operador>, IRepositoryOperador
     {
+        public RepositoryOperador(GeaContext context)
+            : base(context)
+        {
+
+        }
     }
 }

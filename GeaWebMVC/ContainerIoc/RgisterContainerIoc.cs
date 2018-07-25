@@ -27,12 +27,12 @@ namespace ContainerIoc
             // Register your types, for instance:
 
             //Register Repository
-            container.Register<IRepositoryCarro, RepositoryCarro >(Lifestyle.Transient);
-            container.Register<IRepositoryOperador, RepositoryOperador>(Lifestyle.Transient);
-            container.Register<IRepositoryEmpresa, RepositoryEmpresa>(Lifestyle.Transient);
-            container.Register<IRepositoryRegistroDeFluxo, RepositoryRegistroDeFluxo>(Lifestyle.Transient);
-            container.Register<IRepositoryPerfil, RepositoryPerfil>(Lifestyle.Transient);
-            container.Register<IRepositoryFaturamento, RepositoryFaturamento>(Lifestyle.Transient);
+            container.Register<IRepositoryCarro, RepositoryCarro >(Lifestyle.Scoped);
+            container.Register<IRepositoryOperador, RepositoryOperador>(Lifestyle.Scoped);
+            container.Register<IRepositoryEmpresa, RepositoryEmpresa>(Lifestyle.Scoped);
+            container.Register<IRepositoryRegistroDeFluxo, RepositoryRegistroDeFluxo>(Lifestyle.Scoped);
+            container.Register<IRepositoryPerfil, RepositoryPerfil>(Lifestyle.Scoped);
+            container.Register<IRepositoryFaturamento, RepositoryFaturamento>(Lifestyle.Scoped);
 
             //Register Business
             container.Register<IBusinessCarro, BusinessCarro>(Lifestyle.Transient);
@@ -43,7 +43,7 @@ namespace ContainerIoc
             container.Register<IBusinessFaturamento, BusinessFaturamento>(Lifestyle.Transient);
 
 
-           // container.Register<DbContext>(() => new GeaContext("Name=GeaContext"), Lifestyle.Scoped);
+            container.Register(() => new GeaContext("Name=GeaContext"), Lifestyle.Scoped);
 
             // This is an extension method from the integration package.
             container.RegisterMvcControllers(Assembly.GetExecutingAssembly());
