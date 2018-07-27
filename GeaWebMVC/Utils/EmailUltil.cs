@@ -7,7 +7,7 @@ using System.Web;
 
 namespace GeaWebMVC.Utils
 {
-    public static class EmailUlts
+    public static class EmailUltils
     {
         public static void SendEmail(MailMessage email)
         {

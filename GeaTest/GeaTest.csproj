@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\BusinessRegistroDeFluxoTeste.cs" />
+    <Compile Include="Business\BusinessFaturamentoTeste.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

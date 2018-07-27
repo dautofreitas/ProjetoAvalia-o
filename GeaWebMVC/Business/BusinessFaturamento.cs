@@ -76,11 +76,9 @@ namespace GeaWebMVC.Business
                 _repositoryFaturamento.Add(faturamento);
             }
                  
-            foreach (var registro in registros)
-            {
-                registro.FaturamentoId = faturamento.Id;
-                _repositoryRegistroDeFluxo.Update(registro);
-            }
+            registros.ForEach(registro => {registro.FaturamentoId = faturamento.Id;
+                                _repositoryRegistroDeFluxo.Update(registro);
+                                    });
 
             return faturamento;
         }
@@ -99,7 +97,7 @@ namespace GeaWebMVC.Business
             email.IsBodyHtml = true;
             email.BodyEncoding = System.Text.Encoding.UTF8;
 
-            EmailUlts.SendEmail(email);
+            EmailUltils.SendEmail(email);
 
 
         }
